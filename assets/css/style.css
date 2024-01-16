@@ -14,3 +14,25 @@
     background-color: brown;
     padding: 1%;
 }
+* {
+
+}
+
+body {
+    background-color: #ededed;
+    padding: 15px;
+    margin: 10px
+}
+
+
+.page-title {
+    font-weight: 400;
+    color: #242323;
+background-color: rgb(240, 240, 240);
+text-decoration: underline;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-start
+}
