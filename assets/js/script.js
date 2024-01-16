@@ -1,5 +1,5 @@
-var searchButton = document.querySelector('#book-call')
-var inputSearcher = document.querySelector('#book-search')
+var searchButton = document.querySelector('.button')
+var inputSearcher = document.querySelector('#search-field')
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 var bookName = inputSearcher.value
 
@@ -22,9 +22,29 @@ searchButton.addEventListener('click', function () {
     
 })
 
+// // Requesting Url from dbooks API
+var requestUrldBooks = `https://www.dbooks.org/api/recent`
+var dBooksApiKey = 
+
+searchButton.addEventListener('click', function () {
+
+    
+
+    fetch(requestUrldBooks)
+    .then(function (response) {
+    return response.json();
+    })
+    .then(function (data) {
+    console.log(data)
+    
+    })
+
+});
+
+
+// Function to display searched title/book
 function displayTitle(data) {
     if (data) {
-
     } else {
         "No books"
     }
@@ -50,4 +70,12 @@ function displayTitle(data) {
 
 // Nav functionality
 
-var elem = new Foundation.DropdownMenu(element, options);
+// var elem = new Foundation.DropdownMenu(element, options);
+    
+
+
+
+
+
+
+
