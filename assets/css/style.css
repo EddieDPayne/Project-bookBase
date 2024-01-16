@@ -1,0 +1,16 @@
+.menu-text {
+    font-size: 300%;
+}
+
+.top-bar-right {
+    padding-right: 5%;
+}
+
+#book-search {
+    margin: 2%;
+}
+
+#book-call {
+    background-color: brown;
+    padding: 1%;
+}

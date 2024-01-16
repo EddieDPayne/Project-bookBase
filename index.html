@@ -22,22 +22,31 @@
     <title>Project bookBase</title>
   </head>
 
-  <body>
-    <header class="title">
-        <h1>Welcome to Project bookBase!</h1>
-    </header>
-
-    <nav>
-        <a href="#about-us">About Us</a>
-        <a href="#contacts">Contact Us</a>
+    <nav>   
+      <div class="top-bar" id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Welcome to bookBase!</li>
+            <li class="has-submenu">
+              <a href="#0">One</a>
+              <ul class="submenu menu vertical" data-submenu>
+                <li><a href="#0">One</a></li>
+                <li><a href="#0">Two</a></li>
+                <li><a href="#0">Three</a></li>
+              </ul>
+            </li>
+            <li><a href="#0">Two</a></li>
+            <li><a href="#0">Three</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><input type="search" placeholder="Enter a book title!"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-
-    <section>
-        <h2 id="book-name">Melb</h2>
-        <form>Enter a book title:</form>
-        <input id="book-search"></input>
-        <button id="book-call">Search</button>
-    </section>
 
     <aside>
       <ul id="saved-books">
