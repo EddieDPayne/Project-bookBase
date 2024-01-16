@@ -45,3 +45,9 @@ function displayTitle(data) {
 
     bookContainer.append(mainTitle, mainPublisher);
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+// Nav functionality
+
+var elem = new Foundation.DropdownMenu(element, options);
