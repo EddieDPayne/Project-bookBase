@@ -22,15 +22,15 @@ searchButton.addEventListener('click', function () {
     
 })
 
-// // Requesting Url from dbooks API
-var requestUrldBooks = `https://www.dbooks.org/api/recent`
-var dBooksApiKey = 
 
-searchButton.addEventListener('click', function () {
+// // Requesting Url from Open Library API
+var openLibraryKey = 
 
-    
+searchButton.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
 
-    fetch(requestUrldBooks)
+    var requestUrlopenLibrary = `https://openlibrary.org/search.json?title:`;
+
+    fetch(requestUrlopenLibrary)
     .then(function (response) {
     return response.json();
     })
@@ -60,7 +60,7 @@ function displayTitle(data) {
     console.log(data.items[0]);
     console.log(data.items[0].volumeInfo);
     console.log(mainTitle);
-
+// Need to creat a for loops to llop through array and select all books that match this data and render so many to the results page
     var mainPublisher = $('<li>').text(`Author: ${data.items[0].volumeInfo.publisher}`);
 
     bookContainer.append(mainTitle, mainPublisher);
