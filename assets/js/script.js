@@ -24,12 +24,13 @@ searchButton.addEventListener('click', function () {
 })
 
 
-// // Requesting Url from Open Library API
-var openLibraryKey = 
+
+// Requesting Url from Open Library API
+var bookAvailabilty = book.volumeInfo.title;
 
 checkAvailabiltyBtn.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
 
-    var requestUrlopenLibrary = `https://openlibrary.org/search.json?q=harry%20potter&fields=*,availability&limit=1`;
+    var requestUrlopenLibrary = `https://openlibrary.org/search.json?q=${bookAvailabilty}=*,availability&limit=1`;
 
     fetch(requestUrlopenLibrary)
     .then(function (response) {
@@ -37,10 +38,10 @@ checkAvailabiltyBtn.addEventListener('click', function () { // Need to change th
     })
     .then(function (data) {
     console.log(data)
-    
-    })
-
+})
 });
+    
+
 
 
 // Function to display searched title/book
