@@ -1,88 +1,79 @@
+* {
 
-
-.menu-text {
-    font-size: 300%;
-    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.top-bar-right {
-    padding-right: 5%;
+body {
+    font-family: sans-serif;
+    background-color: #ededed;
+    padding: 15px;
+    margin: 10px
 }
 
-#saved-books {
+.page-title {
+    font-weight: 400;
+    color: #242323;
+background-color: rgb(240, 240, 240);
+text-decoration: underline;
+}
 
-    background-color: blanchedalmond;
-    margin: 2%;
+.search-container {
+    display: flex;
+    justify-content: flex-start
+}
+
+.h1 {
+
+}
+
+.h2 {
+
+}
+
+.h3 {
+
+}
+
+/*LOCAL STORAGE SEARCH HISTORY*/
+.styling-for-local-storage-results {
+color: yellow;
+background: black;
+}
+
+#search {
+    margin: 20px 0 20px 0;
+}
+
+ul {
     list-style-type: none;
-    border-radius: 10%;
+    margin: 0;
+    padding: 0;
 }
 
-#book-call {
-    background-color: brown;
-    padding: 1%;
+li {
+    margin: 20px 0 20px 0;
 }
 
-#recent-searches {
-    margin: 2%;
-    font-size: 125%;
-    font-style: italic;
-}
+li .row img {
+    width: 135px;
+    height: 200px;
 
-#results-list {
-    margin: 5%;
-    border: 3px solid #1C6EA4;
-}
-
-input {
-    border: 3px solid #1C6EA4;
-}
-
-button {
-    box-shadow: 2px 2px 7px 1px #088fe9;
 }
 
 
 
+/*////////////////////////////////////////////////////////////////////////*/
 
 
 
-.menu-text {
-    font-size: 300%;
-    font-family: 'Noto Sans JP', sans-serif;
+/* Set additional styling options for the columns*/
+.column-API {
+float: left;
+width: 50%;
 }
 
-.top-bar-right {
-    padding-right: 5%;
+.row:after {
+content: "";
+display: table;
+clear: both;
 }
 
-#saved-books {
-
-    background-color: blanchedalmond;
-    margin: 2%;
-    list-style-type: none;
-    border-radius: 10%;
-}
-
-#book-call {
-    background-color: brown;
-    padding: 1%;
-}
-
-#recent-searches {
-    margin: 2%;
-    font-size: 125%;
-    font-style: italic;
-}
-
-#results-list {
-    margin: 5%;
-    border: 3px solid #1C6EA4;
-}
-
-input {
-    border: 3px solid #1C6EA4;
-}
-
-button {
-    box-shadow: 2px 2px 7px 1px #088fe9;
-}
