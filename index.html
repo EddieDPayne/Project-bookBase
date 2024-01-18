@@ -14,6 +14,8 @@
     <title>Project bookBase</title>
 </head>
 
+<!--current styles are placeholder-->
+
   <!--BODY----------------------------------------------------------------------------------->
 
   <!--NAV, MENU, LINKS----------------------------------------------------------------------------------->
@@ -59,19 +61,24 @@
 <div class="row">
   <div class="column" style="background-color:#4c9cf7;">
   <h2>Search History</h2>
-                <ul id="saved-books">
-                  <li>Search Results should appear here once local storage is done</li>
-                </ul>
+  <div class = "saved-info">
+
+    <p id="regular-text">Search Results should appear below</p>
+    <p>currently local storage retrieves most recent entry and only one entry</p>
+    <p>have to fix it to generate returns in a list, and multiple items</p>
+    <section class="styling-for-local-storage-results" placeholder="Local storage results will appear here">
+    <div class = "saved-books">
               </div>
+            </section>
+            </div>
+          </div>
           
 <!--------------------------------START DUAL COLUMN---------------------------------------------------->
 
-<!--------------------------------COLUMN 1: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
+<!--------------------------------COLUMN 1/left: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
 
 <!--I couldn't get Foundation to make the two columns appear side by side
 so I had to use normal/vanilla CSS to make them, and put the styling into html doc below-->
-
-<!--current style of grid is just a placeholder-->
 
 <div class="row">
   <div class="column-API" style="background-color:#FFB695;">
@@ -79,7 +86,7 @@ so I had to use normal/vanilla CSS to make them, and put the styling into html d
 
       <div class="small-3 columns">
         <h2>Results List</h2>
-<!--------------------------------Display book list sits inside column 1--------------------------------------------------->
+<!--------------------------------Display book list sits inside column Left--------------------------------------------------->
 
         <!---"display-book-list is the selector id for where the results go into------------------->
           <ul id="display-book-list" class="list-group"></ul>
@@ -89,17 +96,19 @@ so I had to use normal/vanilla CSS to make them, and put the styling into html d
   </div>
 
 
-<!--------------------------------COLUMN 2: SECOND API ???---------------------------------------------------->
+<!--------------------------------COLUMN 2/right: SECOND API ???---------------------------------------------------->
 
   <div class="column" style="background-color:#96D1CD;">
     <h1>Second API data</h1>
 
     <div class="small-3 columns">
       <h2>Data List</h2>
+      <div class="API-2">
 
+    </div>
 <!--------------------------------2ND API Display data may go here (columns, rows, lists, etc)--------------------------------------------------->
 
-  <p> Please enter a term into the search bar</p>
+  <p> Placeholder text - delete</p>
     
 
 </div>

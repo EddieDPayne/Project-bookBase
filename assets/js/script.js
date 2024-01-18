@@ -8,6 +8,7 @@ var booksList = document.getElementById('display-book-list');
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
 
+
 ///  CREATING AND GRABBING HTML ELEMENTS AND LINKING THEM TO VARIABLES ////////////////////////////////////
 
 var createBookList = function(book) {        
@@ -81,11 +82,26 @@ var fetchRequest = function() {
     fetchRequest();
   });
 
-
-//////////////////////////////////////////////////////
-
 /// SEARCH HISTORY / LOCAL STORAGE //////////////////////////////////////////////////////
 
 
+// Sets the book search term in localStorage
+var bookName = localStorage.getItem('searchBookStore');
 
+// Sets the input value in localStorage
+function recordBookData() {
+  localStorage.setItem('searchBookStore', input.value);
+}
+
+// Appends the search input from localStorage to the book list
+for (var i = 0; i < localStorage.length; i++) {
+  $(".saved-books").append("<p>" + localStorage.getItem(localStorage.key(i)) + "</p>");
+}
+
+  button.addEventListener("click", recordBookData, function() {
+    fetchRequest();
+  });
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
 

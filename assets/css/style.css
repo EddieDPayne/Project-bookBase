@@ -33,6 +33,12 @@ text-decoration: underline;
 
 }
 
+/*LOCAL STORAGE SEARCH HISTORY*/
+.styling-for-local-storage-results {
+color: yellow;
+background: black;
+}
+
 #search {
     margin: 20px 0 20px 0;
 }
@@ -71,7 +77,3 @@ display: table;
 clear: both;
 }
 
-.hr {
-
-    
-}
