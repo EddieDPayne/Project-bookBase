@@ -1,6 +1,5 @@
-var searchButton = document.querySelector('.button')
-var checkAvailabiltyBtn = document.querySelector() // This selector needs to be attached to a button
-var inputSearcher = document.querySelector('#search-field')
+var searchButton = document.querySelector('#book-call')
+var inputSearcher = document.querySelector('#book-search')
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 var bookName = inputSearcher.value
 
@@ -23,30 +22,9 @@ searchButton.addEventListener('click', function () {
     
 })
 
-
-
-// Requesting Url from Open Library API
-var bookAvailabilty = book.volumeInfo.title;
-
-checkAvailabiltyBtn.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
-
-    var requestUrlopenLibrary = `https://openlibrary.org/search.json?q=${bookAvailabilty}=*,availability&limit=1`;
-
-    fetch(requestUrlopenLibrary)
-    .then(function (response) {
-    return response.json();
-    })
-    .then(function (data) {
-    console.log(data)
-})
-});
-    
-
-
-
-// Function to display searched title/book
 function displayTitle(data) {
     if (data) {
+
     } else {
         "No books"
     }
@@ -62,7 +40,7 @@ function displayTitle(data) {
     console.log(data.items[0]);
     console.log(data.items[0].volumeInfo);
     console.log(mainTitle);
-// Need to creat a for loops to llop through array and select all books that match this data and render so many to the results page
+
     var mainPublisher = $('<li>').text(`Author: ${data.items[0].volumeInfo.publisher}`);
 
     bookContainer.append(mainTitle, mainPublisher);
@@ -72,12 +50,4 @@ function displayTitle(data) {
 
 // Nav functionality
 
-// var elem = new Foundation.DropdownMenu(element, options);
-    
-
-
-
-
-
-
-
+var elem = new Foundation.DropdownMenu(element, options);

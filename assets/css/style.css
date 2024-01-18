@@ -14,14 +14,15 @@
     background-color: brown;
     padding: 1%;
 }
+* {
 
 
 body {
+    font-family: sans-serif;
     background-color: #ededed;
     padding: 15px;
     margin: 10px
 }
-
 
 .page-title {
     font-weight: 400;
@@ -34,3 +35,60 @@ text-decoration: underline;
     display: flex;
     justify-content: flex-start
 }
+
+.h1 {
+
+}
+
+.h2 {
+
+}
+
+.h3 {
+
+}
+
+/*LOCAL STORAGE SEARCH HISTORY*/
+.styling-for-local-storage-results {
+color: yellow;
+background: black;
+}
+
+#search {
+    margin: 20px 0 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 20px 0 20px 0;
+}
+
+li .row img {
+    width: 135px;
+    height: 200px;
+
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+
+
+
+/* Set additional styling options for the columns*/
+.column-API {
+float: left;
+width: 50%;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
