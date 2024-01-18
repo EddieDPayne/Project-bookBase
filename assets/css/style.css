@@ -50,5 +50,28 @@ li {
 li .row img {
     width: 135px;
     height: 200px;
+
 }
 
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+
+
+
+/* Set additional styling options for the columns*/
+.column-API {
+float: left;
+width: 50%;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.hr {
+
+    
+}

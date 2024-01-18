@@ -37,6 +37,8 @@
               </ul>
             </div>
 
+            
+
  <!--------------------------------SEARCH BAR---------------------------------------------------->
 
         <div class="top-bar-right"> 
@@ -51,27 +53,60 @@
             </div>
         </div>
 
+
 <!--------------------------------SEARCH HISTORY---------------------------------------------------->
 
-             <aside>
+<div class="row">
+  <div class="column" style="background-color:#4c9cf7;">
+  <h2>Search History</h2>
                 <ul id="saved-books">
-                  <li></li>
+                  <li>Search Results should appear here once local storage is done</li>
                 </ul>
-              </aside>
+              </div>
+          
+<!--------------------------------START DUAL COLUMN---------------------------------------------------->
 
-        
-<!--------------------------------SEARCH RESULTS---------------------------------------------------->
+<!--------------------------------COLUMN 1: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
 
-<aside>
-    <h2>Results List</h2>
-</aside>
+<!--I couldn't get Foundation to make the two columns appear side by side
+so I had to use normal/vanilla CSS to make them, and put the styling into html doc below-->
 
-        <div class="row">
-            <div class="small-3 columns">
-                <ul id="display-book-list" class="list-group"></ul>
-            </div>
-        </div>   
-    </div>
+<!--current style of grid is just a placeholder-->
+
+<div class="row">
+  <div class="column-API" style="background-color:#FFB695;">
+      <h1>Google Books</h1>
+
+      <div class="small-3 columns">
+        <h2>Results List</h2>
+<!--------------------------------Display book list sits inside column 1--------------------------------------------------->
+
+        <!---"display-book-list is the selector id for where the results go into------------------->
+          <ul id="display-book-list" class="list-group"></ul>
+      </div>
+
+      <p> Please enter a term into the search bar</p>
+  </div>
+
+
+<!--------------------------------COLUMN 2: SECOND API ???---------------------------------------------------->
+
+  <div class="column" style="background-color:#96D1CD;">
+    <h1>Second API data</h1>
+
+    <div class="small-3 columns">
+      <h2>Data List</h2>
+
+<!--------------------------------2ND API Display data may go here (columns, rows, lists, etc)--------------------------------------------------->
+
+  <p> Please enter a term into the search bar</p>
+    
+
+</div>
+</div>
+</div>
+
+    
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
