@@ -1,4 +1,5 @@
 var searchButton = document.querySelector('.button')
+var checkAvailabiltyBtn = document.querySelector() // This selector needs to be attached to a button
 var inputSearcher = document.querySelector('#search-field')
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 var bookName = inputSearcher.value
@@ -26,7 +27,7 @@ searchButton.addEventListener('click', function () {
 // // Requesting Url from Open Library API
 var openLibraryKey = 
 
-searchButton.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
+checkAvailabiltyBtn.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
 
     var requestUrlopenLibrary = `https://openlibrary.org/search.json?q=harry%20potter&fields=*,availability&limit=1`;
 
