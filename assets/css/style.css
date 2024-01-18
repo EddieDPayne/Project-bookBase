@@ -1,16 +1,42 @@
+
+
 .menu-text {
     font-size: 300%;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .top-bar-right {
     padding-right: 5%;
 }
 
-#book-search {
+#saved-books {
+
+    background-color: blanchedalmond;
     margin: 2%;
+    list-style-type: none;
+    border-radius: 10%;
 }
 
 #book-call {
     background-color: brown;
     padding: 1%;
+}
+
+#recent-searches {
+    margin: 2%;
+    font-size: 125%;
+    font-style: italic;
+}
+
+#results-list {
+    margin: 5%;
+    border: 3px solid #1C6EA4;
+}
+
+input {
+    border: 3px solid #1C6EA4;
+}
+
+button {
+    box-shadow: 2px 2px 7px 1px #088fe9;
 }
