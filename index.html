@@ -1,68 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+    
     <title>Project bookBase</title>
-  </head>
+</head>
 
-    <nav>   
-      <div class="top-bar" id="responsive-menu">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Welcome to bookBase!</li>
-            <li class="has-submenu">
-              <a href="#0">One</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#0">One</a></li>
+<!--current styles are placeholder-->
+
+  <!--BODY----------------------------------------------------------------------------------->
+
+  <!--NAV, MENU, LINKS----------------------------------------------------------------------------------->
+
+    <body>
+        <nav>   
+          <div class="top-bar" id="responsive-menu">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Welcome to bookBase!</li>
+                <li class="has-submenu">
+                  <a href="#0">One</a>
+                  <ul class="submenu menu vertical" data-submenu>
+                    <li><a href="#0">One</a></li>
+                    <li><a href="#0">Two</a></li>
+                    <li><a href="#0">Three</a></li>
+                  </ul>
+                </li>
                 <li><a href="#0">Two</a></li>
                 <li><a href="#0">Three</a></li>
               </ul>
-            </li>
-            <li><a href="#0">Two</a></li>
-            <li><a href="#0">Three</a></li>
-          </ul>
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Enter a book title!"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            </div>
 
-    <aside>
-      <ul id="saved-books">
-        <li></li>
-      </ul>
-    </aside>
+            
 
-    <aside>
+ <!--------------------------------SEARCH BAR---------------------------------------------------->
+
+        <div class="top-bar-right"> 
+            <div id="search">
+            <ul class="menu">
+                <li><input id = "search-input" input type="search" placeholder="Enter a book title!"></li>
+                <li><button id = "button" button type="button" class="button">Search</button></li>
+              </ul>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+<!--------------------------------SEARCH HISTORY---------------------------------------------------->
+
+<div class="row">
+  <div class="column" style="background-color:#4c9cf7;">
+  <h2>Search History</h2>
+  <div class = "saved-info">
+
+    <p id="regular-text">Search Results should appear below</p>
+    <p>have to fix it to generate returns in a list</p>
+    <section class="styling-for-local-storage-results" placeholder="Local storage results will appear here">
+    <div class = "saved-books">
+              </div>
+            </section>
+            </div>
+          </div>
+          
+<!--------------------------------START DUAL COLUMN---------------------------------------------------->
+
+<!--------------------------------COLUMN 1/left: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
+
+<!--I couldn't get Foundation to make the two columns appear side by side
+so I had to use normal/vanilla CSS to make them, and put the styling into html doc below-->
+
+<div class="row">
+  <div class="column-API" style="background-color:#FFB695;">
+      <h1>Google Books</h1>
+
+      <div class="small-3 columns">
         <h2>Results List</h2>
-    </aside>
+<!--------------------------------Display book list sits inside column Left--------------------------------------------------->
 
-    <div id="display-searched-books">
-        <ul id="display-book-list"></ul>
+        <!---"display-book-list is the selector id for where the results go into------------------->
+          <ul id="display-book-list" class="list-group"></ul>
+      </div>
+
+      <p> Please enter a term into the search bar</p>
+  </div>
+
+
+<!--------------------------------COLUMN 2/right: SECOND API ???---------------------------------------------------->
+
+  <div class="column" style="background-color:#96D1CD;">
+    <h1>Second API data</h1>
+
+    <div class="small-3 columns">
+      <h2>Data List</h2>
+      <div class="API-2">
+
     </div>
+<!--------------------------------2ND API Display data may go here (columns, rows, lists, etc)--------------------------------------------------->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <p> Placeholder text - delete</p>
+    
+
+</div>
+</div>
+</div>
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
-  </body>
+</body>
+</html>
+
