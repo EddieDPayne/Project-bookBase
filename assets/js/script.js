@@ -28,7 +28,7 @@ var openLibraryKey =
 
 searchButton.addEventListener('click', function () { // Need to change this to listen for another event regarding the searched book
 
-    var requestUrlopenLibrary = `https://openlibrary.org/search.json?title:`;
+    var requestUrlopenLibrary = `https://openlibrary.org/search.json?q=harry%20potter&fields=*,availability&limit=1`;
 
     fetch(requestUrlopenLibrary)
     .then(function (response) {
