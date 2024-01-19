@@ -14,39 +14,76 @@
     <title>Project bookBase</title>
 </head>
 
-    <nav>   
-      <div class="top-bar" id="responsive-menu">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Welcome to bookBase!</li>
-            <li class="has-submenu">
-              <a href="#0">One</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#0">One</a></li>
+<!--current styles are placeholder-->
+
+  <!--BODY----------------------------------------------------------------------------------->
+
+  <!--NAV, MENU, LINKS----------------------------------------------------------------------------------->
+
+    <body>
+        <nav>   
+          <div class="top-bar" id="responsive-menu">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Welcome to bookBase!</li>
+                <li class="has-submenu">
+                  <a href="#0">One</a>
+                  <ul class="submenu menu vertical" data-submenu>
+                    <li><a href="#0">One</a></li>
+                    <li><a href="#0">Two</a></li>
+                    <li><a href="#0">Three</a></li>
+                  </ul>
+                </li>
                 <li><a href="#0">Two</a></li>
                 <li><a href="#0">Three</a></li>
               </ul>
-            </li>
-            <li><a href="#0">Two</a></li>
-            <li><a href="#0">Three</a></li>
-          </ul>
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Enter a book title!"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            </div>
 
-    <aside>
-      <ul id="saved-books">
-        <li></li>
-      </ul>
-    </aside>
+            
 
-    <aside>
+ <!--------------------------------SEARCH BAR---------------------------------------------------->
+
+        <div class="top-bar-right"> 
+            <div id="search">
+            <ul class="menu">
+                <li><input id = "search-input" input type="search" placeholder="Enter a book title!"></li>
+                <li><button id = "button" button type="button" class="button">Search</button></li>
+              </ul>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+<!--------------------------------SEARCH HISTORY---------------------------------------------------->
+
+<div class="row">
+  <div class="column" style="background-color:#4c9cf7;">
+  <h2>Search History</h2>
+  <div class = "saved-info">
+
+    <p id="regular-text">Search Results should appear below</p>
+    <p>have to fix it to generate returns in a list</p>
+    <section class="styling-for-local-storage-results" placeholder="Local storage results will appear here">
+    <div class = "saved-books">
+              </div>
+            </section>
+            </div>
+          </div>
+          
+<!--------------------------------START DUAL COLUMN---------------------------------------------------->
+
+<!--------------------------------COLUMN 1/left: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
+
+<!--I couldn't get Foundation to make the two columns appear side by side
+so I had to use normal/vanilla CSS to make them, and put the styling into html doc below-->
+
+<div class="row">
+  <div class="column-API" style="background-color:#FFB695;">
+      <h1>Google Books</h1>
+
+      <div class="small-3 columns">
         <h2>Results List</h2>
 <!--------------------------------Display book list sits inside column Left--------------------------------------------------->
 
@@ -82,6 +119,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
 

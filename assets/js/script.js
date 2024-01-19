@@ -22,8 +22,14 @@ var bookThumbnail = document.createElement('img');
 
 // Creates variable and element, adds text content and determines wether the book is available or not
 var openLibraryAvailability = document.createElement('p');
-    openLibraryAvailability.textContent = openLibraryInfo.length > 0 ? "Available on Open Library" : "Not available on Open Library";
-    div.appendChild(openLibraryAvailability);
+// This checks that the there is information returned from the API on the book that is searched. Using an if/else statement.
+if (openLibraryInfo.length > 0) {
+    openLibraryAvailability.textContent = "Available on Open Library";
+} else {
+    openLibraryAvailability.textContent = "Not available on Open Library";
+}
+
+div.appendChild(openLibraryAvailability);
     
 /// INSERTING THE FETCHED BOOK DATA (e.g. title, author) and putting that info into the variables, which goes into the linked the HTML document
 
