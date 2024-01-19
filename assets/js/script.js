@@ -8,17 +8,23 @@ var booksList = document.getElementById('display-book-list');
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
 
+
 ///  CREATING AND GRABBING HTML ELEMENTS AND LINKING THEM TO VARIABLES ////////////////////////////////////
 
-var createBookList = function(book) {        
+var createBookList = function(book, openLibraryInfo) {        
 var li = document.createElement('li');        
 var div = document.createElement('div');
 var singleBookRow = document.createElement('div');        
 var bookTitle = document.createElement('h2');
 var bookAuthors = document.createElement('h3');
 var bookDescription = document.createElement('p');
-var bookThumbnail = document.createElement('img');      
+var bookThumbnail = document.createElement('img'); 
 
+// Creates variable and element, adds text content and determines wether the book is available or not
+var openLibraryAvailability = document.createElement('p');
+    openLibraryAvailability.textContent = openLibraryInfo.length > 0 ? "Available on Open Library" : "Not available on Open Library";
+    div.appendChild(openLibraryAvailability);
+    
 /// INSERTING THE FETCHED BOOK DATA (e.g. title, author) and putting that info into the variables, which goes into the linked the HTML document
 
       bookTitle.textContent = book.volumeInfo.title;
@@ -48,34 +54,32 @@ var bookThumbnail = document.createElement('img');
 // FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
 
 var fetchRequest = function() {
-      if(input.value.length === 0) {
-  /////////// alert if user tries to search without entering a search word, i.e. text area is empty
-          alert('Please enter a search term');
-////////////////////////////////                                          ////////////////////////////////
-//////////////////   above is an alert and needs to be changed to a modal somehow  ////////////////////////////////
-////////////////////////////////                                         ////////////////////////////////
-      } else {
-          booksList.innerHTML = "";
-          var searchBook = input.value;
-          var searchURL = `https://www.googleapis.com/books/v1/volumes?q=${searchBook}&key=${googleKey}&printType=books`; 
-          
-          fetch(searchURL)
-          .then(function(response) {
-              return response.json();
-          })
-          .then(function(response2) {
-              return response2.items.map(function(book) {
-                createBookList(book)
-              })   
+    if (input.value.length === 0) {
+        alert('Please enter a search term');
+    } else {
+        booksList.innerHTML = "";
+        var searchBook = input.value;
+        var searchURL = `https://www.googleapis.com/books/v1/volumes?q=${searchBook}&key=${googleKey}&printType=books`;
 
-            })  
-          .catch( function()  {
-              console.log(`There was an error`);       
-              //////// possibly insert an error message for user here using modals  ////////////////////////////////
-          }); 
-      }                 
-    
-  }
+        fetch(searchURL)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response2) {
+                response2.items.map(function(book) {
+                    searchOpenLibrary(book.volumeInfo.title)
+                        .then(openLibraryInfo => {
+                            createBookList(book, openLibraryInfo);
+                        });
+                });
+            })
+            .catch(function() {
+                console.log(`There was an error`);
+                // Handle error
+            });
+    }
+}
+
 
   button.addEventListener("click", function() {
     fetchRequest();
@@ -104,21 +108,20 @@ for (var i = 0; i < localStorage.length; i++) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-//Open Library API 
 
-var openLibraryAPI = `http://openlibrary.org/search.json?q=${encodeURIComponent(book)}`;
+// Open Library Api  & Fetch request
+function searchOpenLibrary(bookTitle) {
+    var openLibraryAPI = `http://openlibrary.org/search.json?q=${encodeURIComponent(bookTitle)}`;
 
-fetch(searchURL)
-.then(function(response) {
-    return response.json();
-})
-.then(function(response2) {
-    return response2.items.map(function() {
-      
-    })   
-
-  })  
-.catch( function()  {
-    console.log(`There was an error`);       
-    //////// possibly insert an error message for user here using modals  ////////////////////////////////
-}); 
+    return fetch(openLibraryAPI)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            return data.docs;
+        })
+        .catch(function(error) {
+            console.error('Error fetching data from Open Library:', error);
+            return [];
+        });
+}
