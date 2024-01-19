@@ -1,3 +1,5 @@
+/* @ import any google fonts here if you want */
+
 * {
 
 }
@@ -33,11 +35,38 @@ text-decoration: underline;
 
 }
 
+/* check Availability BUTTON  --------------------------------------*/
+/* i had to get the selector name from dev tools that's why it's got a weird name */
+
+input[type="button" i] {
+    appearance: auto;
+    user-select: none;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: greenyellow;
+    color: black;
+    white-space: pre;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: red;
+    border-image: initial;
+}
+
+
+/*-----------------------------------------------------------------*/
+
 /*LOCAL STORAGE SEARCH HISTORY*/
+/* styling for local storage is currently placeholder */ 
+
 .styling-for-local-storage-results {
 color: yellow;
 background: black;
 }
+/*---------------------------*/
 
 #search {
     margin: 20px 0 20px 0;
@@ -61,11 +90,15 @@ li .row img {
 
 
 
+
 /*////////////////////////////////////////////////////////////////////////*/
 
-
+/* API RESULT COLUMNS FORMAT */
 
 /* Set additional styling options for the columns*/
+/*these columns are placeholder, i got them from w3schools*/
+/*feel free to change */
+
 .column-API {
 float: left;
 width: 50%;
