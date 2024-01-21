@@ -1,39 +1,54 @@
-/* @ import any google fonts here if you want */
-
-* {
-
-}
-
-body {
-    font-family: sans-serif;
-    background-color: #ededed;
-    padding: 15px;
-    margin: 10px
-}
-
-.page-title {
-    font-weight: 400;
-    color: #242323;
-background-color: rgb(240, 240, 240);
-text-decoration: underline;
-}
+/* @ import any google fonts */
+@font-face { font-family: 'Bebas Neue'; src: url('../fonts/BebasNeue-regular.woff2') format('woff2'), url('../fonts/BebasNeue-regular.woff') format('woff'), url('../fonts/BebasNeue-regular.ttf') format('truetype'), url('../fonts/BebasNeue-regular.eot') format('truetype'); font-weight: normal; font-style: normal; }
+ 
 
 .search-container {
     display: flex;
     justify-content: flex-start
 }
 
-.h1 {
+header h1 {
+    font-family: Bebas Neue;
+    font-size: 50px;
+    font-weight: 600;
+    background-image: repeating-conic-gradient(
+        #00c2cb 10%, #010d79 33%,  #ee4b2b 66%, #00c2cb 66%
+      );
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+.img-center {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-text {
+
 
 }
 
-.h2 {
+
+.word-to {
+
+    font-size: 40px;
 
 }
 
-.h3 {
+.nav-items {
+        list-style-type: none;
+        margin: 10px;
+      }
 
-}
+
+      .nav-list {
+        display: inline;
+        
+      }
+
 
 /* check Availability BUTTON  --------------------------------------*/
 /* i had to get the selector name from dev tools that's why it's got a weird name */
