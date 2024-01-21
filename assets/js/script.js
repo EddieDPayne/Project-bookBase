@@ -76,6 +76,7 @@ var fetchRequest = function() {
                     searchOpenLibrary(book.volumeInfo.title)
                         .then(openLibraryInfo => {
                             createBookList(book, openLibraryInfo);
+                            console.log(book); // logs to console 
                         });
                 });
             })
@@ -115,19 +116,28 @@ for (var i = 0; i < localStorage.length; i++) {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-// Open Library Api  & Fetch request
-function searchOpenLibrary(bookTitle) {
-    var openLibraryAPI = `http://openlibrary.org/search.json?q=${encodeURIComponent(bookTitle)}`;
+// Open Library Api  & Fetch request - revised
+ function searchOpenLibrary(bookTitle) {
+    // The URI component takes in a string and returns a new string so that it can be included in the URL
+    var openLibraryAPI = `http://openlibrary.org/search.json?q=${bookTitle}`;
 
     return fetch(openLibraryAPI)
         .then(function(response) {
             return response.json();
-        })
+            
+        }) 
         .then(function(data) {
-            return data.docs;
-        })
+            return data.docs
+        }) 
         .catch(function(error) {
+          
             console.error('Error fetching data from Open Library:', error);
             return [];
         });
-}
+    }
+        
+
+var result = searchOpenLibrary();
+    console.log(result);
+
+    // `http://openlibrary.org/search.json?q=${encodeURIComponent(bookTitle)}`;
