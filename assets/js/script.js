@@ -11,12 +11,14 @@ var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 // FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
 
 var fetchRequest = function() {
-      if(input.value.length === 0) {
-  /////////// alert if user tries to search without entering a search word, i.e. text area is empty
-          alert('Please enter a search term');
-////////////////////////////////                                          ////////////////////////////////
-//////////////////   above is an alert and needs to be changed to a modal somehow  ////////////////////////////////
-////////////////////////////////                                         ////////////////////////////////
+  /// pulls modal up if the search bar is empty 
+  if(input.value.length === 0) {
+    ////// 
+       $(function() {
+         modal.style.display = "block";
+       });
+
+////////////////////////////////     ////////////////////////////////                                       ////////////////////////////////
       } else {
           booksList.innerHTML = "";
           var searchBook = input.value;
@@ -99,7 +101,7 @@ function recordBookData() {
 
 // Appends the search input from localStorage to the book list
 for (var i = 0; i < localStorage.length; i++) {
-  $(".saved-books").append("<p>" + localStorage.getItem(localStorage.key(i)) + "</p>");
+  $(".saved-books").append("<li>" + localStorage.getItem(localStorage.key(i)) + "</li>");
 }
 
 // EVENT LISTENERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
