@@ -20,10 +20,10 @@ var bookAuthors = document.createElement('h3');
 var bookDescription = document.createElement('p');
 var bookThumbnail = document.createElement('img'); 
 
-var availabileBtn = document.createElement('BUTTON');
+// var availabileBtn = document.createElement('BUTTON');
 
 
-var availability = document.querySelector('columns-large-4');
+// var availability = document.querySelector('columns-large-4');
 
 
 
@@ -58,7 +58,7 @@ div.appendChild(openLibraryAvailability);
       singleBookRow.appendChild(div);
       li.appendChild(singleBookRow);
 
-      availabileBtn.appendChild(availability);    
+    //   availabileBtn.appendChild(availability);    
 
       li.classList.add('list-group-item');
       singleBookRow.classList.add('row');
