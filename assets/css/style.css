@@ -54,23 +54,42 @@ header h1 {
 /* i had to get the selector name from dev tools that's why it's got a weird name */
 
 input[type="button" i] {
-    appearance: auto;
-    user-select: none;
-    align-items: flex-start;
+    padding: 6px 100px;
+    font-size: 16px;
     text-align: center;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: greenyellow;
-    color: black;
-    white-space: pre;
-    padding-block: 1px;
-    padding-inline: 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: red;
-    border-image: initial;
+    cursor: pointer;
+    outline: none; 
+    color: #000000;
+    background-color: #d9ff00;
+    border: 2px solid rgb(187, 255, 0);
+    
+    border-radius: 10px;
+    box-shadow: 0 9px #6e6e6e;
 }
 
+#delete-button {
+    padding: 6px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none; 
+    color: #04589c;
+    background-color: #d9ff00;
+    border: 2px solid rgb(187, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0 9px #6e6e6e;
+  
+}
+
+#delete-button:hover {
+    background-color: #3e8e41
+} 
+
+#delete-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 /* MODAL window if search but no search terms put in  --------------------------------------*/
 /*  */
