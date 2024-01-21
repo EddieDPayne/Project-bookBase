@@ -20,6 +20,14 @@ var bookAuthors = document.createElement('h3');
 var bookDescription = document.createElement('p');
 var bookThumbnail = document.createElement('img'); 
 
+var availabileBtn = document.createElement('BUTTON');
+
+
+var availability = document.querySelector('columns-large-4');
+
+
+
+
 // Creates variable and element, adds text content and determines wether the book is available or not
 var openLibraryAvailability = document.createElement('p');
 // This checks that the there is information returned from the API on the book that is searched. Using an if/else statement.
@@ -38,6 +46,7 @@ div.appendChild(openLibraryAvailability);
       bookDescription.textContent = book.volumeInfo.description ? book.volumeInfo.description: " Description unavailable";
       bookThumbnail.src = book.volumeInfo.imageLinks ? 
       book.volumeInfo.imageLinks.thumbnail : 
+    availabileBtn.innerText='Check Book Availability';
       
 
  ///// below attaches the result data (book title, author, description, img) to the created div 
@@ -49,11 +58,12 @@ div.appendChild(openLibraryAvailability);
       singleBookRow.appendChild(div);
       li.appendChild(singleBookRow);
 
+      availabileBtn.appendChild(availability);    
+
       li.classList.add('list-group-item');
       singleBookRow.classList.add('row');
       div.classList.add('columns-large-4');
       bookThumbnail.classList.add('columns-small-3', 'rwd');
-          
       booksList.appendChild(li);
   }
 
@@ -124,7 +134,7 @@ for (var i = 0; i < localStorage.length; i++) {
     return fetch(openLibraryAPI)
         .then(function(response) {
             return response.json();
-            
+           
         }) 
         .then(function(data) {
             return data.docs
@@ -134,10 +144,11 @@ for (var i = 0; i < localStorage.length; i++) {
             console.error('Error fetching data from Open Library:', error);
             return [];
         });
-    }
         
+    }
+    
+    var result = searchOpenLibrary();
+        console.log(result);
 
-var result = searchOpenLibrary();
-    console.log(result);
 
     // `http://openlibrary.org/search.json?q=${encodeURIComponent(bookTitle)}`;
