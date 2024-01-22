@@ -1,6 +1,23 @@
 /* @ import any google fonts */
 @font-face { font-family: 'Bebas Neue'; src: url('../fonts/BebasNeue-regular.woff2') format('woff2'), url('../fonts/BebasNeue-regular.woff') format('woff'), url('../fonts/BebasNeue-regular.ttf') format('truetype'), url('../fonts/BebasNeue-regular.eot') format('truetype'); font-weight: normal; font-style: normal; }
- 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --blue: #0d5ec7;
+    --light-blue: #63f8f1; 
+    --volt:  #c8ff00;
+    --dark-blue: #072752;
+    --yellow: #e5dc15;
+    --dark-yellow: #c2bb11;
+    
+}
+
+body {
+  font-family: Helvetica; 
+  background-color: #ededed;
+  padding: 15px;
+  margin: 10px
+}
 
 .search-container {
     display: flex;
@@ -24,30 +41,52 @@ header h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
-.menu-text {
+hr {
+
+  border: 6px dashed rgb(255, 255, 255);
+
+}
 
 
+hr.new1 {
+  border: 8px solid rgb(47, 45, 180);
+
+}
+
+hr.new2 {
+  border: 8px solid rgb(255, 77, 77);
+
+}
+
+
+.menu {
+ 
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+li.nav-list-item {
+  font-family: Bebas Neue;
+  font-size: 30px;
 }
 
 
 .word-to {
 
     font-size: 40px;
+}
+ 
+#fonts {
 
+  font-size: 16px;
+color: rgb(255, 255, 255);
 }
 
-.nav-items {
-        list-style-type: none;
-        margin: 10px;
-      }
-
-
-      .nav-list {
-        display: inline;
-        
-      }
+regular-text
 
 
 /* check Availability BUTTON  --------------------------------------*/
@@ -73,9 +112,9 @@ input[type="button" i] {
   text-align: center;
   cursor: pointer;
   outline: none; 
-  color: #9dff00;
+  color: #ff4646;
   background-color: #060607;
-  border: 2px solid rgb(187, 255, 0);
+  border: 2px solid rgb(255, 251, 0);
   
   border-radius: 10px;
   box-shadow: 0 9px #999;
@@ -83,11 +122,12 @@ input[type="button" i] {
 }
 
 #delete-button:hover {
-    background-color: #3e8e41
+    background-color: #d0ff00
 } 
 
 #delete-button:active {
-    background-color: #3e8e41;
+  color: #ffffff;
+  background-color: #e65151;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
