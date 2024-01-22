@@ -157,7 +157,7 @@ button.addEventListener("click", recordBookData, function () {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-
+/////////// Eddie's Code ////////////////////////
 // Open Library Api  & Fetch request - revised
 function searchOpenLibrary(bookTitle, isbnData) {
     // The URI component takes in a string and returns a new string so that it can be included in the URL
@@ -183,5 +183,5 @@ function searchOpenLibrary(bookTitle, isbnData) {
 
 var result = searchOpenLibrary();
 console.log(result);
-
+/////////////////// Eddie's Code ///////////////////
 
