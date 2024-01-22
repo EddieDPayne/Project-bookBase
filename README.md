@@ -5,7 +5,6 @@
 An online database to search books that checks the availability to download from Open Library
 
 
-
 ## Description
 
 
@@ -27,7 +26,7 @@ GitHub Pages URL - https://eddiedpayne.github.io/Project-bookBase/
 
 
 
-![Alt text](./assets/img/Screenshot-1.png)
+![Alt text](./assets/images/Screenshot-1.png)
 
 
 
@@ -35,7 +34,7 @@ GitHub Pages URL - https://eddiedpayne.github.io/Project-bookBase/
 
 
 
-![Alt text](./assets/img/Screenshot-2.png)
+![Alt text](./assets/images/Screenshot-2.png)
 
 
 
@@ -43,14 +42,13 @@ GitHub Pages URL - https://eddiedpayne.github.io/Project-bookBase/
 
 
 
-![Alt text](./assets/img/Screenshot-3.png)
+![Alt text](./assets/images/Screenshot-3.png)
 
 
 ## Contributions
 
 Here at bookBase we welcome contributions from the online community! 
 If you'd like to enhance the experience or you have any questions or feedback, please don't hesitate to reach out.
-
 
 
 ## License
