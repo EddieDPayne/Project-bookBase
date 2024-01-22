@@ -8,6 +8,7 @@ An online database to search books that checks the availability to download from
 
 ## Description
 
+
 Welcome to bookBase, a powerful web application designed to provide users with comprehensive information about any book title. It allows the user to not only retrieve relevant details about the searched book but also informs users about its availability for download on Open Library.
 
 This project was a team collaboration. A great experience in version control, working with other developers, sharing ideas and having fun during the many different stages on the design, build and deployment.
