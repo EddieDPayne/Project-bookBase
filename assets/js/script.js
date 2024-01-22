@@ -57,7 +57,8 @@ var createBookList = function(book) {
       var bookTitle = document.createElement('h2');
       var bookAuthors = document.createElement('h3');
       var bookDescription = document.createElement('p');
-      var bookThumbnail = document.createElement('img');    
+      var bookThumbnail = document.createElement('img');  
+      var separator = document.createElement('hr');   
 
   // (2) VARIABLES ARE FILLED WITH FETCHED GOOGLE DATA:
   // textContent means it will display the data as text
@@ -67,7 +68,7 @@ var createBookList = function(book) {
         bookDescription.textContent = book.volumeInfo.description ? book.volumeInfo.description: " Description unavailable";    // <= book summary/description
         bookThumbnail.src = book.volumeInfo.imageLinks ?    // <= thumbnail
         book.volumeInfo.imageLinks.thumbnail : // <= placeholder thumbnail if there is no book image, currently blank
-        
+  
 
   // (3) FETCH DATA IS PUT INTO THE CREATED HTML ELEMENTS IN SEPARATE SECTIONS
         div.appendChild(bookTitle);
@@ -83,12 +84,17 @@ var createBookList = function(book) {
         singleBookRow.classList.add('row');
         div.classList.add('columns-large-4');
         bookThumbnail.classList.add('columns-small-3', 'rwd');
+        separator.classList.add('separator');
      
         /// BUTTON: 'Check availability' button creation => making button an event listener => attaching event listener to function (book) call
         var checkAvailability = document.createElement('input');   
         checkAvailability.type='button';   
         checkAvailability.onclick=(book);    
         div.append(checkAvailability);     
+
+        // HR / DIVISION: between each list entry
+        
+        div.append(separator);  
         
     } // end of createBookList function
                   
