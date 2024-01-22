@@ -3,9 +3,14 @@
 
 var input = document.querySelector('input');
 var button = document.querySelector('button');
+// var checkAvailability = document.querySelector('input[type="button" i]');
 var booksList = document.getElementById('display-book-list');
 
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
+
+  // Initialize local storage array of searched books
+  var searchBookStore = [];
+  
 
 
 // FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
@@ -104,6 +109,15 @@ for (var i = 0; i < localStorage.length; i++) {
   $(".saved-books").append("<li>" + localStorage.getItem(localStorage.key(i)) + "</li>");
 }
 
+
+
+
+
+
+
+
+
+
 // EVENT LISTENERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Although there is only one button, there are two event listeners because the 'search' button is performing 2 event listening jobs on a button click:
@@ -119,6 +133,9 @@ button.addEventListener("click", function() {
     fetchRequest();
   });
 
-
+  // event listener for the check availability buttons
+//        button2.addEventListener("click", function() {
+  //      fetchRequest2();
+//        });
 ///////////////////////////////////////////////////////////////////////////////////////////
 
