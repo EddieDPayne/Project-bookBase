@@ -82,6 +82,7 @@ var createBookList = function (book, openLibraryInfo) {
     booksList.appendChild(li);
 
 
+  
 
 
     // Event Listener on 'Check Availability' btn
@@ -91,10 +92,9 @@ var createBookList = function (book, openLibraryInfo) {
 
         searchOpenLibrary(bookTitle, isbnData);
         console.log(bookTitle)
-        console.log('test');
+        console.log(isbnData);
 
     });
-
 
 
 }
@@ -162,8 +162,8 @@ button.addEventListener("click", recordBookData, function () {
 function searchOpenLibrary(bookTitle, isbnData) {
     // The URI component takes in a string and returns a new string so that it can be included in the URL
      var openLibraryTitle = `http://openlibrary.org/search.json?q=${bookTitle}`;
-   var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
-   console.log(openLibraryIsbn)
+  //  var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
+  //  console.log(openLibraryIsbn)
     return fetch(openLibraryTitle)
         .then(function (response) {
             return response.json();
