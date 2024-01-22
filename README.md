@@ -19,13 +19,31 @@ This project was a team collaboration.
 
 To use this application, simply navigate to the URL below on any device and begin searching your favourite books 
 
-(GitHub Pages url placeholder)
 
-(screen shot 1 )
 
-(screen shot 2 )
+GitHub Pages URL - https://eddiedpayne.github.io/Project-bookBase/
 
-(screen shot 3)
+
+
+
+
+![Alt text](./assets/img/Screenshot-1.png)
+
+
+
+
+
+
+
+![Alt text](./assets/img/Screenshot-2.png)
+
+
+
+
+
+
+
+![Alt text](./assets/img/Screenshot-3.png)
 
 
 ## Contributions
