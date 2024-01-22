@@ -24,6 +24,18 @@ body {
     justify-content: flex-start
 }
 
+h1, h2, p {
+  display: flex;
+  justify-content: center;
+}
+
+img.columns-small-3.rwd {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+}
+
 header h1 {
     font-family: Bebas Neue;
     font-size: 50px;
@@ -252,3 +264,5 @@ content: "";
 display: table;
 clear: both;
 }
+
+
