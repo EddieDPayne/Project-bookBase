@@ -162,7 +162,7 @@ button.addEventListener("click", recordBookData, function () {
 function searchOpenLibrary(bookTitle, isbnData) {
     // The URI component takes in a string and returns a new string so that it can be included in the URL
      var openLibraryTitle = `http://openlibrary.org/search.json?q=${bookTitle}`;
-   var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
+  //  var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
   //  console.log(openLibraryIsbn)
     return fetch(openLibraryTitle)
         .then(function (response) {
