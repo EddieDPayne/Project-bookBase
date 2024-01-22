@@ -4,7 +4,8 @@
 var input = document.querySelector('input');
 var button = document.querySelector('button');
 // var checkAvailability = document.querySelector('input[type="button" i]');
-var booksList = document.getElementById('display-book-list');
+var booksList = document.getElementById('display-book-list');    /// Google Books API generates into here
+
 
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
@@ -13,10 +14,13 @@ var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
   
 
 
-// FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////// FETCH (1) TO GOOGLE BOOKS ///////////////////////////////////////////////////
+
+//////////////////////////////////////// FETCH REQUEST (1) FOR BOOK OBJECT DATA BY SEARCH TERM ////////////////////////////////
 
 var fetchRequest = function() {
-  /// pulls modal up if the search bar is empty 
+  /// modal: if the search bar is empty //////////////////////
   if(input.value.length === 0) {
     ////// 
        $(function() {
@@ -33,8 +37,8 @@ var fetchRequest = function() {
           .then(function(response) {
               return response.json();
           })
-          .then(function(response2) {
-              return response2.items.map(function(book) {
+          .then(function(data) {
+              return data.items.map(function(book) {
                 createBookList(book)
               })   
 
@@ -47,7 +51,7 @@ var fetchRequest = function() {
   }
 
 
-// (1) ON FETCH, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES:
+// (1) ON FETCH 1, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES:
 
 var createBookList = function(book) {   
 //  VARIABLE =      created HTML element 
@@ -70,7 +74,7 @@ var createBookList = function(book) {
         book.volumeInfo.imageLinks.thumbnail : // <= placeholder thumbnail if there is no book image, currently blank
   
 
-  // (3) FETCH DATA IS PUT INTO THE CREATED HTML ELEMENTS IN SEPARATE SECTIONS
+  // (3) FETCH 1 DATA IS PUT INTO THE CREATED HTML ELEMENTS IN SEPARATE SECTIONS
         div.appendChild(bookTitle);
         div.appendChild(bookAuthors);
         div.appendChild(bookDescription);
@@ -99,6 +103,15 @@ var createBookList = function(book) {
     } // end of createBookList function
                   
     
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 /// SEARCH HISTORY / LOCAL STORAGE //////////////////////////////////////////////////////
 
 
@@ -114,13 +127,6 @@ function recordBookData() {
 for (var i = 0; i < localStorage.length; i++) {
   $(".saved-books").append("<li>" + localStorage.getItem(localStorage.key(i)) + "</li>");
 }
-
-
-
-
-
-
-
 
 
 
