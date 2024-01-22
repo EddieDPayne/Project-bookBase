@@ -115,7 +115,7 @@ var fetchRequest = function () {
             })
             .then(function (response2) {
                 response2.items.map(function (book) {
-                    searchOpenLibrary(book.volumeInfo.title)
+                    searchOpenLibrary(book.volumeInfo.title, book.volumeInfo.industryIdentifiers[0].identifier)
                         .then(openLibraryInfo => {
                             createBookList(book, openLibraryInfo);
                             console.log(book); // logs to console 
@@ -162,7 +162,7 @@ button.addEventListener("click", recordBookData, function () {
 function searchOpenLibrary(bookTitle, isbnData) {
     // The URI component takes in a string and returns a new string so that it can be included in the URL
      var openLibraryTitle = `http://openlibrary.org/search.json?q=${bookTitle}`;
-  //  var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
+   var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
   //  console.log(openLibraryIsbn)
     return fetch(openLibraryTitle)
         .then(function (response) {
@@ -183,4 +183,5 @@ function searchOpenLibrary(bookTitle, isbnData) {
 
 var result = searchOpenLibrary();
 console.log(result);
+
 
