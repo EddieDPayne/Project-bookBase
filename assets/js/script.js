@@ -1,30 +1,32 @@
 
-// VARIABLES /////////////////////////////////////////////////
+// VARIABLES 
 
 var input = document.querySelector('input');
-var button = document.querySelector('button');
+var button = document.querySelector('#google-search-button');
+var m = document.getElementById("myModal");
 // var checkAvailability = document.querySelector('input[type="button" i]');
 var booksList = document.getElementById('display-book-list');    /// Google Books API generates into here
-
+// variable is of local storage in either state; containing history, or empty:
+var searchHistory = JSON.parse(localStorage.getItem(i)) || [];
+var searchHist = document.querySelector(".saved-books");
 
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
-  // Initialize local storage array of searched books
-  var searchBookStore = [];
-  
 
-///////////////////////////////////////////////// FETCH (1) TO GOOGLE BOOKS ///////////////////////////////////////////////////
+//-------------------------------------------------------- FETCH (1) TO GOOGLE BOOKS ---------------------------------------------------
 
-//////////////////////////////////////// FETCH REQUEST (1) FOR BOOK OBJECT DATA BY SEARCH TERM ////////////////////////////////
+//-------------------------------------- FETCH REQUEST (1) FOR BOOK OBJECT DATA BY SEARCH TERM -----------------------------------------
 
 var fetchRequest = function() {
-  /// modal: if the search bar is empty //////////////////////
-  if(input.value.length === 0) {
+  //--- modal: if the search bar is empty ----
+  if(input.value.length === 0) {  
+    m.foundation('open');
+
        $(function() {
          modal.style.display = "block";
        });
+//---
 
-////////////////////////////////     ////////////////////////////////                                       ////////////////////////////////
       } else {
           booksList.innerHTML = "";
           var searchBook = input.value;
@@ -42,12 +44,12 @@ var fetchRequest = function() {
             })  
           .catch( function()  {
               console.log(`There was an error`);       
-              //////// possibly insert an error message for user here using modals  ////////////////////////////////
+              
           }); 
       }                  
   }
 
-// (1) ON FETCH 1, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES:
+// (1) ON FETCH 1, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES -------------------------------------------
 
 var createBookList = function (book, openLibraryInfo) { 
 //  VARIABLE =      created HTML element 
@@ -69,8 +71,12 @@ var createBookList = function (book, openLibraryInfo) {
     // This checks that the there is information returned from the API on the book that is searched. Using an if/else statement.
     if (openLibraryInfo.length > 0) {
         openLibraryAvailability.textContent = "Available on Open Library";
+        openLibraryAvailability.style.color = "green";
+        openLibraryAvailability.style.fontSize = "x-large";
     } else {
         openLibraryAvailability.textContent = "Not available on Open Library";
+        openLibraryAvailability.style.color = "red";
+        openLibraryAvailability.style.fontSize = "x-large";
     }
 
   // (2) VARIABLES ARE FILLED WITH FETCHED GOOGLE DATA:
@@ -98,7 +104,6 @@ var createBookList = function (book, openLibraryInfo) {
         div.appendChild(isbnData);
 
       
-  
         // attaching created HTML elements to pre-made HTML area in the document
         li.classList.add('list-group-item');
         singleBookRow.classList.add('row');
@@ -106,45 +111,24 @@ var createBookList = function (book, openLibraryInfo) {
         bookThumbnail.classList.add('columns-small-3', 'rwd');
         separator.classList.add('separator');
         booksList.appendChild(li);
-     
-/// BUTTON: 'Check availability' button creation => making button an event listener => attaching event listener to function (book) call
-//        var checkAvailability = document.createElement('input');   
-//        checkAvailability.type='button';   
-//        checkAvailability.onclick=(book);    
-//        div.append(checkAvailability); 
-
-    // Creates button and sets text
- //   var availableBtn = document.createElement('button');
- //   availableBtn.innerText = 'Check Availability';
-
-     // Styles the button as its generated
-//     availableBtn.style.backgroundColor = '#4CAF50';
- //    availableBtn.style.color = 'white';
- //    availableBtn.style.padding = '10px';
- //    availableBtn.style.border = 'none';
- //    availableBtn.style.borderRadius = '5px';
-  //   availableBtn.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-
-
-        // HR / DIVISION: between each list entry
         
-        div.append(separator);  
+        div.append(separator); 
         
+
     } // end of createBookList function
                   
 
-        // Event Listener on 'Check Availability' btn
-     //   availableBtn.addEventListener('click', function () {
-     //   });
-
     
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
 
-// FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
+// FETCH REQUEST FOR BOOK INFORMATION 
 
-var fetchRequest = function () {
-    if (input.value.length === 0) {
-        alert('Please enter a search term');
+var fetchRequest = function() {
+    //--- modal: if the search bar is empty ----
+  if(input.value.length === 0) {
+    $(function() {
+      modal.style.display = "block";
+    });
     } else {
         booksList.innerHTML = "";
         var searchBook = input.value;
@@ -170,22 +154,16 @@ var fetchRequest = function () {
     }
 }
 
-button.addEventListener("click", function () {
-    fetchRequest();
-});
 
+//-------------------------------- SEARCH HISTORY / LOCAL STORAGE ------------------------------------------------------------------
 
+// puts the book search term in localStorage
 
-
-
-/// SEARCH HISTORY / LOCAL STORAGE //////////////////////////////////////////////////////
-
-// Sets the book search term in localStorage
-var bookName = localStorage.getItem('searchBookStore');
-
-// Sets the input value (search bar info) in localStorage
+// puts the input value (search bar info) in localStorage
 function recordBookData() {
-  localStorage.setItem('searchBookStore', input.value);
+  localStorage.setItem('searchBookStore', JSON.stringify(input.value));
+  //add to list on html
+  $(".saved-books").append("<li>"+ input.value + "</li>");
 }
 
 // Appends the search input from localStorage to the book list
@@ -193,45 +171,85 @@ for (var i = 0; i < localStorage.length; i++) {
   $(".saved-books").append("<li>" + localStorage.getItem(localStorage.key(i)) + "</li>");
 }
 
+// delete history
+// function to delete search history for delete search button
 
-// EVENT LISTENERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
+function deleteSearchHistory() {
+  searchHist.innerHTML = "";
+}
 
-// Although there is only one button, there are two event listeners because the 'search' button is performing 2 event listening jobs on a button click:
+// MODEL ---------------------------------------------------------------------------------
 
-//                (I tried combining them but it caused the search to stop working)
 
-// (1) this event listener enables the search button to run the function(book) fetch request
-button.addEventListener("click", function() {
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("google-search-button");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
+// EVENT LISTENERS --------------------------------------------------------------------------------
+
+// (1) to run fetch request
+// (2) to save to local storage
+// (3) run modal (if no search terms)
+// (4) delete search history button
+ 
+button.addEventListener("click", function () {
   fetchRequest();
 });
 
+button.addEventListener("click", function() {
+  preventDefault();
+  fetchRequest();
+});
 
 // this event listener is saving the search to local storage
   button.addEventListener("click", recordBookData, function() {
     fetchRequest();
   });
 
+  // delete button click handler
+document.getElementById('delete').addEventListener("click", function () {
+  ((i)) = [];
+   localStorage.clear();
+   deleteSearchHistory();
+ 
+ });
 
   searchOpenLibrary(bookTitle, isbnData);
   console.log(bookTitle)
   console.log(isbnData);
 
+  
 
 
-  // event listener for the check availability buttons
-//        button2.addEventListener("click", function() {
-  //      fetchRequest2();
-//        });
-///////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------
 
 // Open Library Api  & Fetch request - revised
 
 
 function searchOpenLibrary(bookTitle, isbnData) {
-  // The URI component takes in a string and returns a new string so that it can be included in the URL
+  // The URL component takes in a string and returns a new string so that it can be included in the URL
    var openLibraryTitle = `http://openlibrary.org/search.json?q=${bookTitle}`;
-//  var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
-//  console.log(openLibraryIsbn)
+
   return fetch(openLibraryTitle)
       .then(function (response) {
           return response.json();
