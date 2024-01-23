@@ -92,9 +92,9 @@ Thank you for using bookBase! We hope it enhances your book-searching experience
 ## 8. Authors and acknowledgment
 
 The authors acknowledge and credit those who have contributed to this project, including:
-•	https://git.bootcampcontent.com/Monash-University/MONU-VIRT-FSF-PT-11-2023-U-LOLC
-•	Chee Ho Tai
-•	Pranita Shrestha
+-	https://git.bootcampcontent.com/Monash-University/MONU-VIRT-FSF-PT-11-2023-U-LOLC
+-	Chee Ho Tai
+-	Pranita Shrestha
 
 ## 9. Project status
 
