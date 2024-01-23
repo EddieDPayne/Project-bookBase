@@ -2,16 +2,15 @@
 // VARIABLES /////////////////////////////////////////////////
 
 var input = document.querySelector('input');
-var button = document.querySelector('button');
+var button = document.querySelector('#button');
 // var checkAvailability = document.querySelector('input[type="button" i]');
 var booksList = document.getElementById('display-book-list');    /// Google Books API generates into here
-
+// variable is of local storage in either state; containing history, or empty:
+var searchHistory = JSON.parse(localStorage.getItem(i)) || [];
+var searchHist = document.querySelector(".saved-books");
 
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
-  // Initialize local storage array of searched books
-  var searchBookStore = [];
-  
 
 ///////////////////////////////////////////////// FETCH (1) TO GOOGLE BOOKS ///////////////////////////////////////////////////
 
@@ -69,8 +68,12 @@ var createBookList = function (book, openLibraryInfo) {
     // This checks that the there is information returned from the API on the book that is searched. Using an if/else statement.
     if (openLibraryInfo.length > 0) {
         openLibraryAvailability.textContent = "Available on Open Library";
+        openLibraryAvailability.style.color = "green";
+        openLibraryAvailability.style.fontSize = "x-large";
     } else {
         openLibraryAvailability.textContent = "Not available on Open Library";
+        openLibraryAvailability.style.color = "red";
+        openLibraryAvailability.style.fontSize = "x-large";
     }
 
   // (2) VARIABLES ARE FILLED WITH FETCHED GOOGLE DATA:
@@ -98,7 +101,6 @@ var createBookList = function (book, openLibraryInfo) {
         div.appendChild(isbnData);
 
       
-  
         // attaching created HTML elements to pre-made HTML area in the document
         li.classList.add('list-group-item');
         singleBookRow.classList.add('row');
@@ -128,8 +130,9 @@ var createBookList = function (book, openLibraryInfo) {
 
         // HR / DIVISION: between each list entry
         
-        div.append(separator);  
+        div.append(separator); 
         
+
     } // end of createBookList function
                   
 
@@ -170,22 +173,17 @@ var fetchRequest = function () {
     }
 }
 
-button.addEventListener("click", function () {
-    fetchRequest();
-});
-
-
-
-
 
 /// SEARCH HISTORY / LOCAL STORAGE //////////////////////////////////////////////////////
 
-// Sets the book search term in localStorage
-var bookName = localStorage.getItem('searchBookStore');
+// puts the book search term in localStorage
+//var bookName = localStorage.getItem('searchBookStore');
 
-// Sets the input value (search bar info) in localStorage
+// puts the input value (search bar info) in localStorage
 function recordBookData() {
-  localStorage.setItem('searchBookStore', input.value);
+  localStorage.setItem('searchBookStore', JSON.stringify(input.value));
+  //add to list on html
+  $(".saved-books").append("<li>"+ input.value + "</li>");
 }
 
 // Appends the search input from localStorage to the book list
@@ -193,45 +191,80 @@ for (var i = 0; i < localStorage.length; i++) {
   $(".saved-books").append("<li>" + localStorage.getItem(localStorage.key(i)) + "</li>");
 }
 
+// delete history
+
+
+// function to delete search history for delete search button
+
+function deleteSearchHistory() {
+  searchHist.innerHTML = "";
+}
+
+
+// delete button click handler
+//document.getElementById('delete').addEventListener("click", function () {
+ // localStorage.removeItem('saved-books');
+//document.getElementById('')
+
+// delete button click handler
+document.getElementById('delete').addEventListener("click", function () {
+ ((i)) = [];
+  localStorage.clear();
+  deleteSearchHistory();
+
+});
+
+
+
+// "last-search " = 'searchBookStore'
+// searchHistory = input.value
+
+ // searchHistory = (i)
+
+// delete button removes previous searches list, active on refresh
+
+
+
+// ".saved-books = where in html local storage will display
+
+// input.value search term in search bar
+
 
 // EVENT LISTENERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Although there is only one button, there are two event listeners because the 'search' button is performing 2 event listening jobs on a button click:
-
-//                (I tried combining them but it caused the search to stop working)
-
-// (1) this event listener enables the search button to run the function(book) fetch request
-button.addEventListener("click", function() {
+// (1) to run fetch request
+// (2) to save to local storage
+// (3) run modal (if no search terms)
+// 
+ 
+button.addEventListener("click", function () {
   fetchRequest();
 });
 
+button.addEventListener("click", function() {
+  preventDefault();
+  fetchRequest();
+});
 
 // this event listener is saving the search to local storage
   button.addEventListener("click", recordBookData, function() {
     fetchRequest();
   });
 
-
   searchOpenLibrary(bookTitle, isbnData);
   console.log(bookTitle)
   console.log(isbnData);
 
 
-
-  // event listener for the check availability buttons
-//        button2.addEventListener("click", function() {
-  //      fetchRequest2();
-//        });
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // Open Library Api  & Fetch request - revised
 
 
 function searchOpenLibrary(bookTitle, isbnData) {
-  // The URI component takes in a string and returns a new string so that it can be included in the URL
+  // The URL component takes in a string and returns a new string so that it can be included in the URL
    var openLibraryTitle = `http://openlibrary.org/search.json?q=${bookTitle}`;
-//  var openLibraryIsbn = `https://openlibrary.org/isbn.json?q=${isbnData}`;
-//  console.log(openLibraryIsbn)
+
   return fetch(openLibraryTitle)
       .then(function (response) {
           return response.json();

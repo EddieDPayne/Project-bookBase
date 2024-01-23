@@ -15,13 +15,12 @@
     <title>Project bookBase</title>
 </head>
 
-<!--current styles are placeholder-->
-
   <!--BODY----------------------------------------------------------------------------------->
 
   <!--NAV, MENU, LINKS----------------------------------------------------------------------------------->
 
     <body>
+      
         <nav>   
           <div class="top-bar" id="responsive-menu">
             <div class="top-bar-left">
@@ -36,7 +35,7 @@
             <div id="search">
             <ul class="menu">
                 <li><input id = "search-input" input type="search" placeholder="Enter a book title!"></li>
-                <li><button id = "button" button type="button" class="button">Search</button></li>
+                <li><button id = "button" button type="button" class="button" >Search</button></li>
               </ul>
 
                     </button>
@@ -44,7 +43,7 @@
             </div>
         </div>
 
-  <!-- MODAL window on empty search bar ----------------------------------------------------------------------> 
+  <!-- MODAL window comes up if empty search return ----------------------------------------------------------------------> 
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -55,13 +54,12 @@
             <h5>Error: Please enter a search term</h5>
             <p>e.g. 'Harry Potter'</p>
           </div>
-        
         </div>
         
         <!-- MODAL -----------------------------------------------------------------------------------------------> 
         
 
-  <!--VANILLA/HTML/CSS NAVBAR, MENU, LINKS, ICONS----------------------------------------------------------------------------------->
+  <!--FOUNDATION MENU, LINKS, ICONS----------------------------------------------------------------------------------->
 
   <ul class="menu align-center">
     <li class="nav-list-item"><img width="65" height="65" src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/65/external-home-multimedia-kiranshastry-gradient-kiranshastry.png" alt="external-home-multimedia-kiranshastry-gradient-kiranshastry"/><a href="#">Home</a></li>
@@ -87,21 +85,18 @@
     <div class = "saved-books">
               </div>
                       <!--saved history delete button-->
-        <button id = "delete-button" button type="button" class="button">Delete History  <i class="fas fa-trash-alt mr-1"></i></button>
+        <button id = "delete" button type="reset" class="button">Delete History  <i class="fas fa-trash-alt mr-1"></i></button>
 
             </section>
             </div>
           </div>
-          
-<!--------------------------------START DUAL COLUMN---------------------------------------------------->
-
+    
 <!--------------------------------COLUMN 1/left: GOOGLE BOOKS: SEARCH RESULTS---------------------------------------------------->
 
 <!--I couldn't get Foundation to make the two columns appear side by side
 so I had to use normal/vanilla CSS to make them, and put the styling into html doc below-->
 
-<div class="row">
-  <div class="column-API" style="background-color:#c8fff8;">
+  <div style="background-color:#c8fff8;">
       <h1>Google Books</h1>
 
       <div class="small-3 columns">
@@ -115,35 +110,8 @@ so I had to use normal/vanilla CSS to make them, and put the styling into html d
 
       <p> Please enter a term into the search bar</p>
 
-      
-  </div>
 
-<!--------------------------------COLUMN 2/right: SECOND API ???---------------------------------------------------->
-
-<div class="row">
-<div class="column-API 2" style="background-color:#c8fff8;">
-    <h1>OpenLibrary</h1>
-
-    <div class="small-3 columns">
-      <h2>Data List</h2>
-      <hr class="new2">
-      <div class="API 2">
-      </div>
-      <p id="print-isbn"></p>
-        <p> test API data generation here</p>
-
-    </div>
-
-<!--------------------------------2ND API Display data may go here (columns, rows, lists, etc)--------------------------------------------------->
-
-
-</div>
-</div>
-</div>
 </div>  
-
-
-
 
 
     <!-------------------------------end content------------------------------------------------->
