@@ -83,7 +83,7 @@ var createBookList = function (book, openLibraryInfo) {
   // textContent means it will display the data as text
   //            VARIABLE      =       fetched data
         bookTitle.textContent = book.volumeInfo.title;   //    <= title
-        bookAuthors.textContent = book.volumeInfo.authors;  // <= author
+        bookAuthors.textContent = `Author: ${book.volumeInfo.authors}`;  // <= author
         bookDescription.textContent = book.volumeInfo.description ? book.volumeInfo.description: " Description unavailable";    // <= book summary/description
         bookThumbnail.src = book.volumeInfo.imageLinks ?    // <= thumbnail
         book.volumeInfo.imageLinks.thumbnail : // <= placeholder thumbnail if there is no book image, currently blank
