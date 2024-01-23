@@ -91,7 +91,7 @@ font-size: 16px;
 color: rgb(255, 255, 255);
 }
 
-/* search BUTTON  --------------------------------------*/
+/* search button  --------------------------------------*/
 
 #button {
   padding: 10px 10px;
@@ -145,7 +145,6 @@ color: rgb(255, 255, 255);
   }
 
 /* MODAL window if search but no search terms put in  --------------------------------------*/
-/*  */
 
 .modal {
     display: none; /* Hidden by default */
@@ -184,7 +183,7 @@ color: rgb(255, 255, 255);
     cursor: pointer;
   }
 
-/*-----------------------------------------------------------------*/
+
 
 /*LOCAL STORAGE SEARCH HISTORY*/
 
@@ -214,13 +213,8 @@ li .row img {
 
 }
 
-/*////////////////////////////////////////////////////////////////////////*/
 
 /* API RESULT COLUMNS FORMAT */
-
-/* Set additional styling options for the columns*/
-/*these columns are placeholder, i got them from w3schools*/
-/*feel free to change */
 
 .column-API {
 float: left;

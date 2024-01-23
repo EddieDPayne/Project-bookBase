@@ -1,5 +1,5 @@
 
-// VARIABLES /////////////////////////////////////////////////
+// VARIABLES 
 
 var input = document.querySelector('input');
 var button = document.querySelector('#button');
@@ -12,18 +12,18 @@ var searchHist = document.querySelector(".saved-books");
 var googleKey = 'AIzaSyDDK7ZVkv0izkL1bXrc2SrnVlid_RDm9yM'
 
 
-///////////////////////////////////////////////// FETCH (1) TO GOOGLE BOOKS ///////////////////////////////////////////////////
+//-------------------------------------------------------- FETCH (1) TO GOOGLE BOOKS ---------------------------------------------------
 
-//////////////////////////////////////// FETCH REQUEST (1) FOR BOOK OBJECT DATA BY SEARCH TERM ////////////////////////////////
+//-------------------------------------- FETCH REQUEST (1) FOR BOOK OBJECT DATA BY SEARCH TERM -----------------------------------------
 
 var fetchRequest = function() {
-  /// modal: if the search bar is empty //////////////////////
+  //--- modal: if the search bar is empty ----
   if(input.value.length === 0) {
        $(function() {
          modal.style.display = "block";
        });
+//---
 
-////////////////////////////////     ////////////////////////////////                                       ////////////////////////////////
       } else {
           booksList.innerHTML = "";
           var searchBook = input.value;
@@ -41,12 +41,12 @@ var fetchRequest = function() {
             })  
           .catch( function()  {
               console.log(`There was an error`);       
-              //////// possibly insert an error message for user here using modals  ////////////////////////////////
+              
           }); 
       }                  
   }
 
-// (1) ON FETCH 1, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES:
+// (1) ON FETCH 1, HTML ELEMENTS ARE CREATED AND ASSIGNED VARIABLES -------------------------------------------
 
 var createBookList = function (book, openLibraryInfo) { 
 //  VARIABLE =      created HTML element 
@@ -108,27 +108,6 @@ var createBookList = function (book, openLibraryInfo) {
         bookThumbnail.classList.add('columns-small-3', 'rwd');
         separator.classList.add('separator');
         booksList.appendChild(li);
-     
-/// BUTTON: 'Check availability' button creation => making button an event listener => attaching event listener to function (book) call
-//        var checkAvailability = document.createElement('input');   
-//        checkAvailability.type='button';   
-//        checkAvailability.onclick=(book);    
-//        div.append(checkAvailability); 
-
-    // Creates button and sets text
- //   var availableBtn = document.createElement('button');
- //   availableBtn.innerText = 'Check Availability';
-
-     // Styles the button as its generated
-//     availableBtn.style.backgroundColor = '#4CAF50';
- //    availableBtn.style.color = 'white';
- //    availableBtn.style.padding = '10px';
- //    availableBtn.style.border = 'none';
- //    availableBtn.style.borderRadius = '5px';
-  //   availableBtn.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-
-
-        // HR / DIVISION: between each list entry
         
         div.append(separator); 
         
@@ -136,14 +115,10 @@ var createBookList = function (book, openLibraryInfo) {
     } // end of createBookList function
                   
 
-        // Event Listener on 'Check Availability' btn
-     //   availableBtn.addEventListener('click', function () {
-     //   });
-
     
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------------
 
-// FETCH REQUEST FOR BOOK INFORMATION /////////////////////////////////////////////////
+// FETCH REQUEST FOR BOOK INFORMATION 
 
 var fetchRequest = function () {
     if (input.value.length === 0) {
@@ -174,10 +149,9 @@ var fetchRequest = function () {
 }
 
 
-/// SEARCH HISTORY / LOCAL STORAGE //////////////////////////////////////////////////////
+//-------------------------------- SEARCH HISTORY / LOCAL STORAGE ------------------------------------------------------------------
 
 // puts the book search term in localStorage
-//var bookName = localStorage.getItem('searchBookStore');
 
 // puts the input value (search bar info) in localStorage
 function recordBookData() {
@@ -192,8 +166,6 @@ for (var i = 0; i < localStorage.length; i++) {
 }
 
 // delete history
-
-
 // function to delete search history for delete search button
 
 function deleteSearchHistory() {
@@ -201,41 +173,17 @@ function deleteSearchHistory() {
 }
 
 
-// delete button click handler
-//document.getElementById('delete').addEventListener("click", function () {
- // localStorage.removeItem('saved-books');
-//document.getElementById('')
-
-// delete button click handler
-document.getElementById('delete').addEventListener("click", function () {
- ((i)) = [];
-  localStorage.clear();
-  deleteSearchHistory();
-
-});
 
 
 
-// "last-search " = 'searchBookStore'
-// searchHistory = input.value
-
- // searchHistory = (i)
-
-// delete button removes previous searches list, active on refresh
 
 
-
-// ".saved-books = where in html local storage will display
-
-// input.value search term in search bar
-
-
-// EVENT LISTENERS /////////////////////////////////////////////////////////////////////////////////////////////////////////
+// EVENT LISTENERS --------------------------------------------------------------------------------
 
 // (1) to run fetch request
 // (2) to save to local storage
 // (3) run modal (if no search terms)
-// 
+// (4) delete search history button
  
 button.addEventListener("click", function () {
   fetchRequest();
@@ -251,12 +199,20 @@ button.addEventListener("click", function() {
     fetchRequest();
   });
 
+  // delete button click handler
+document.getElementById('delete').addEventListener("click", function () {
+  ((i)) = [];
+   localStorage.clear();
+   deleteSearchHistory();
+ 
+ });
+
   searchOpenLibrary(bookTitle, isbnData);
   console.log(bookTitle)
   console.log(isbnData);
 
 
-///////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------------------------------------
 
 // Open Library Api  & Fetch request - revised
 
